@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Russo+One&display=swap');
+
+.logo {
+    padding: 15px 15px 0 15px;
+}
+
+.logo img {
+    width: 100px;
+}
+
+.logotype {
+    text-align: center;
+    font-family: 'Russo One', sans-serif;
+    padding-bottom: 15px;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+}
