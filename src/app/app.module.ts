@@ -8,6 +8,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavigationComponent } from './sidebar/navigation/navigation.component';
 import { RankingComponent } from './mainWindow/ranking/ranking.component';
 import { DashboardComponent } from './mainWindow/dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DashboardComponent } from './mainWindow/dashboard/dashboard.component';
   imports: [
     BrowserModule,
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
