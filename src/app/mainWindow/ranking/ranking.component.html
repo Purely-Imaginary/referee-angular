@@ -1,20 +1,22 @@
 <table>
     <tr>
-        <th>ID</th>
+        <th>LP</th>
         <th>Name</th>
         <th>Wins</th>
         <th>Losses</th>
         <th>Goals scored</th>
         <th>Goals lost</th>
-        <th>Rating</th>
+        <th>Rating<br><small>(7 days change)</small></th>
+        <th>Last played</th>
     </tr>
-    <tr *ngFor='let player of data'> 
-        <td>{{player.id}}</td>
+    <tr *ngFor='let player of data; let i = index'> 
+        <td>{{i + 1}}</td>
         <td>{{player.name}}</td>
         <td>{{player.wins}}</td>
         <td>{{player.losses}}</td>
         <td>{{player.goals_scored}}</td>
         <td>{{player.goals_lost}}</td>
         <td class='rating'>{{player.present_rating | number:'1.2-2'}}</td>
+        <td>X days ago</td>
     </tr>
 </table>
