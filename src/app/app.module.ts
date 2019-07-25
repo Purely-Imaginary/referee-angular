@@ -8,8 +8,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavigationComponent } from './sidebar/navigation/navigation.component';
 import { RankingComponent } from './mainWindow/ranking/ranking.component';
 import { DashboardComponent } from './mainWindow/dashboard/dashboard.component';
+import { MatchesComponent } from './mainWindow/matches/matches.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MatchesComponent } from './matches/matches.component';
 
 @NgModule({
   declarations: [
