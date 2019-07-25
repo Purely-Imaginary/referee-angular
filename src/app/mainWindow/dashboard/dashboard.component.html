@@ -10,12 +10,27 @@
         <th>Rating change</th>
     </tr>
     <tr *ngFor='let match of data'>
-        <td>{{ match.date }} - {{ match.time }}</td>
-        <td class='right'>{{ match.team1.player1.name }} - </td> 
-        <td class='left'>{{ match.team1.player2.name }}</td>
+        <td class='date'>
+            <div>{{ match.date }}</div>
+            <div>{{ match.time }}</div>
+        </td>
+        <td class='right' [ngClass]="{'winner': match.team1.score == 10}">
+            <div class="name">{{ match.team1.player1.name }}</div>
+            <div class="rating">{{ match.team1.player1.present_rating | number:'1.1-1' }}</div>
+        </td> 
+        <td class='left' [ngClass]="{'winner': match.team1.score == 10}">
+            <div class="name">{{ match.team1.player2.name }}</div>
+            <div class="rating">{{ match.team1.player2.present_rating | number:'1.1-1' }}</div>
+            </td>
         <td>{{ match.team1.score }} - {{ match.team2.score }}</td>
-        <td class='right'>{{ match.team2.player1.name }} -</td> 
-        <td class='left'>{{ match.team2.player2.name }}</td>
+        <td class='right' [ngClass]="{'winner': match.team2.score == 10}">
+            <div class="name">{{ match.team2.player1.name }}</div>
+            <div class="rating">{{ match.team2.player1.present_rating | number:'1.1-1' }}</div>
+        </td> 
+        <td class='left' [ngClass]="{'winner': match.team2.score == 10}">
+            <div class="name">{{ match.team2.player2.name }}</div>
+            <div class="rating">{{ match.team2.player2.present_rating | number:'1.1-1' }}</div>
+            </td>
         <td>{{ match.team1.estimated_score | number:'1.0-1' }} - {{ match.team2.estimated_score | number:'1.0-1' }}</td>
         <td>{{ match.team1.rating_change | number:'1.0-1' }}</td>
     </tr>

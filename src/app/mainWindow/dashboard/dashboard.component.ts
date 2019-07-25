@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getData(){
-    const endpoint = 'http://localhost:3000/lastMatches/5';
+    const endpoint = 'http://localhost:3000/getMatchesFromLastDays/7';
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
@@ -38,6 +38,7 @@ export class DashboardComponent implements OnInit {
   getRanking() {
     this.data = [];
     this.getData().subscribe((data: []) => {
+      console.log(data);
       this.data = data;
     });
   }
