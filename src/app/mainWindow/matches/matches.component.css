@@ -9,10 +9,15 @@ th {
 td {
     white-space: nowrap;
     padding: 3px;
+    color: whitesmoke
 }
-td.right{
+td.right {
     text-align: right;
 }
-td.left{
+td.left {
     text-align: left;
+}
+td.winner {
+    font-weight: bolder;
+    color: rgb(199, 255, 199);
 }

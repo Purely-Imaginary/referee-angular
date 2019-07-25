@@ -38,7 +38,6 @@ export class MatchesComponent implements OnInit {
   getRanking() {
     this.data = [];
     this.getData().subscribe((data: []) => {
-      console.log(data);
       this.data = data;
     });
   }
