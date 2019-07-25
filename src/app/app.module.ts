@@ -9,6 +9,7 @@ import { NavigationComponent } from './sidebar/navigation/navigation.component';
 import { RankingComponent } from './mainWindow/ranking/ranking.component';
 import { DashboardComponent } from './mainWindow/dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatchesComponent } from './matches/matches.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     SidebarComponent,
     NavigationComponent,
     RankingComponent,
-    DashboardComponent
+    DashboardComponent,
+    MatchesComponent
   ],
   imports: [
     BrowserModule,

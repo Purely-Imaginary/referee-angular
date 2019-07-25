@@ -1,0 +1,12 @@
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+td.right{
+    text-align: right;
+}
+td.left{
+    text-align: left;
+}

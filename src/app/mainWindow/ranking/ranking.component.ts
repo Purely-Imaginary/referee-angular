@@ -1,7 +1,6 @@
-import { Component, OnInit, Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { map, catchError, tap } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-ranking',
@@ -39,8 +38,8 @@ export class RankingComponent implements OnInit {
 
   getRanking() {
     this.data = [];
-    this.getData().subscribe((data: {}) => {
-      console.log(data);
+    this.getData().subscribe((data: []) => {
+      data.sort((a:any, b:any) => (a.present_rating < b.present_rating) ? 1 : -1)
       this.data = data;
     });
   }

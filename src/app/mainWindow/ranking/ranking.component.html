@@ -1,6 +1,20 @@
-<p>ranking works!</p>
-<ul>
-    <li *ngFor='let player of data'>
-        {{player.name}}
-    </li>
-</ul>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Wins</th>
+        <th>Losses</th>
+        <th>Goals scored</th>
+        <th>Goals lost</th>
+        <th>Rating</th>
+    </tr>
+    <tr *ngFor='let player of data'> 
+        <td>{{player.id}}</td>
+        <td>{{player.name}}</td>
+        <td>{{player.wins}}</td>
+        <td>{{player.losses}}</td>
+        <td>{{player.goals_scored}}</td>
+        <td>{{player.goals_lost}}</td>
+        <td class='rating'>{{player.present_rating | number:'1.2-2'}}</td>
+    </tr>
+</table>
