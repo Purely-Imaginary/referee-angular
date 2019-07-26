@@ -40,6 +40,7 @@ export class RankingComponent implements OnInit {
     this.data = [];
     this.getData().subscribe((data: []) => {
       data.sort((a:any, b:any) => (a.presentRating < b.presentRating) ? 1 : -1)
+      console.log(data);
       this.data = data;
     });
   }

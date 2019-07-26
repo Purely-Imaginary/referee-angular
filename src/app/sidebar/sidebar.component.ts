@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }
 
+  refreshData() {
+    const Http = new XMLHttpRequest();
+    const url='http://localhost:3000/calculateMatches';
+    Http.open("GET", url);
+    Http.send();
+  }
 }
