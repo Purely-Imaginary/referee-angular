@@ -39,7 +39,7 @@ export class RankingComponent implements OnInit {
   getRanking() {
     this.data = [];
     this.getData().subscribe((data: []) => {
-      data.sort((a:any, b:any) => (a.present_rating < b.present_rating) ? 1 : -1)
+      data.sort((a:any, b:any) => (a.presentRating < b.presentRating) ? 1 : -1)
       this.data = data;
     });
   }
