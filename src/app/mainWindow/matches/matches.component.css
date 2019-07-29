@@ -9,7 +9,7 @@ th {
 td {
     white-space: nowrap;
     padding: 3px;
-    color: whitesmoke
+    color: LIGHTSTEELBLUE;
 }
 td.right {
     text-align: right;
@@ -19,5 +19,5 @@ td.left {
 }
 td.winner {
     font-weight: bolder;
-    color: rgb(199, 255, 199);
+    color: white;
 }
