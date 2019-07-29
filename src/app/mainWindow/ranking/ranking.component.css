@@ -3,11 +3,42 @@ table {
     border-collapse: collapse;
 }
 
+tr:hover {
+    background-color: rgb(0, 0, 50);
+}
+
 td, th {
     white-space: nowrap;
     text-align: center;
 }
 
 td.rating {
-    text-align: right;
+    font-weight: 900;
+    font-size: 1em;
+}
+
+td.wins, td.avg .avg.positive, .positive {
+    color: #4d754d
+}
+
+td.losses, td.avg span , .negative{
+    color: #754d4d
+}
+
+tr.unranked.unsure {
+    color:#4d5875;
+    font-style: italic;
+}
+
+tr.unsure {
+    color:#7686b3;
+}
+
+div.subscript {
+    font-size: 0.7em;
+    font-weight: normal;
+}
+
+div.hidden {
+    display:none;
 }

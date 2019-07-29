@@ -18,7 +18,7 @@
             <td>{{ match.team1.score }} - {{ match.team2.score }}</td>
             <td class='right' [ngClass]="{'winner': match.team2.score == 10}">{{ match.team2.player1.name }} -</td> 
             <td class='left' [ngClass]="{'winner': match.team2.score == 10}">{{ match.team2.player2.name }}</td>
-            <td>{{ match.team1.estimated_score | number:'1.0-1' }} - {{ match.team2.estimated_score | number:'1.0-1' }}</td>
-            <td>{{ match.team1.rating_change | number:'1.0-1' }}</td>
+            <td>{{ match.team1.estimatedScore | number:'1.0-1' }} - {{ match.team2.estimatedScore | number:'1.0-1' }}</td>
+            <td>{{ match.team1.ratingChange | number:'1.0-1' }}</td>
         </tr>
     </table>

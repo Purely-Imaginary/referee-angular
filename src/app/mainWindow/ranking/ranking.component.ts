@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-ranking',
@@ -40,8 +41,12 @@ export class RankingComponent implements OnInit {
     this.data = [];
     this.getData().subscribe((data: []) => {
       data.sort((a:any, b:any) => (a.presentRating < b.presentRating) ? 1 : -1)
-      console.log(data);
-      this.data = data;
+      const enhancedData = data.map((player: any) => {
+        player.timeSinceLastPlayed = moment(player.lastPlayed).fromNow();
+        return player;
+      });
+      console.log(enhancedData);
+      this.data = enhancedData;
     });
   }
 

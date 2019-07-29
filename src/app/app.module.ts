@@ -10,6 +10,10 @@ import { RankingComponent } from './mainWindow/ranking/ranking.component';
 import { DashboardComponent } from './mainWindow/dashboard/dashboard.component';
 import { MatchesComponent } from './mainWindow/matches/matches.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localePl from '@angular/common/locales/pl';
+registerLocaleData(localePl);
 
 @NgModule({
   declarations: [
@@ -26,7 +30,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pl-PL'},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

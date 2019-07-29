@@ -2,29 +2,42 @@
     <tr>
         <th>LP</th>
         <th>Name</th>
+        <th>Rating<br><small>(7 days change)</small></th>
         <th>Played</th>
         <th>Wins</th>
         <th>Losses</th>
         <th>Goals scored</th>
         <th>Goals lost</th>
         <th>Avg score</th>
-        <th>Rating<br><small>(7 days change)</small></th>
         <th>Last played</th>
     </tr>
-    <tr *ngFor='let player of data; let i = index'> 
+    <tr *ngFor='let player of data; let i = index' 
+    [ngClass]="{'unsure': (player.wins + player.losses) <= 30,
+    'unranked': (player.wins + player.losses) <= 20}"> 
         <td>{{i + 1}}</td>
         <td>{{player.name}}</td>
+        <td class='rating'>
+            <div>{{player.presentRating | number:'1.0-0'}}</div>
+            <div class='subscript' 
+            *ngIf="player.ratingChange !== 0"
+            [ngClass]="player.ratingChange > 0 ? 'positive' : 'negative'">
+                ({{ player.ratingChange | number:'1.0-0'}})</div>
+        </td>
         <td>{{player.wins + player.losses}}</td>
-        <td>{{player.wins}}</td>
-        <td>{{player.losses}}</td>
+        <td class='wins'>{{player.wins}}</td>
+        <td class='losses'>{{player.losses}}</td>
         <td>{{player.goalsScored}}</td>
         <td>{{player.goalsLost}}</td>
-        <td>{{(player.goalsScored / (player.wins + player.losses)) | number:'1.0-1'}} - 
+        <td class='avg'>{{(player.goalsScored / (player.wins + player.losses)) | number:'1.0-1'}} :
             {{(player.goalsLost / (player.wins + player.losses)) | number:'1.0-1'}} 
-            ({{((player.goalsScored / (player.wins + player.losses)) - 
+            <span class='avg' [ngClass]="{'positive': player.goalsScored > player.goalsLost}">
+                ({{((player.goalsScored / (player.wins + player.losses)) - 
             (player.goalsLost / (player.wins + player.losses))) | number:'1.0-1'}})
+        </span>
         </td>
-        <td class='rating'>{{player.presentRating | number:'1.2-2'}}</td>
-        <td>{{player.lastPlayed | date}}</td>
+        <td>
+            <div>{{player.lastPlayed | date}}</div>
+            <div class='subscript'>{{player.timeSinceLastPlayed}}</div>
+        </td>
     </tr>
 </table>
