@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RankingComponent } from 'src/app/mainWindow/ranking/ranking.component';
+import { IdeasComponent } from 'src/app/mainWindow/ideas/ideas.component';
 
 @Component({
   selector: 'app-navigation',
@@ -13,6 +14,7 @@ export class NavigationComponent implements OnInit {
     { name: 'Rankings' , url: '/ranking' , icon: '★', component: RankingComponent},
     { name: 'Matches' , url: '/matches' , icon: '☉'},
     { name: 'Your profile' , url: '/myProfile' , icon: '☣'},
+    { name: 'Ideas' , url: '/ideas' , icon: '✅', component: IdeasComponent},
   ];
 
   constructor() { }

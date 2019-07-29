@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localePl from '@angular/common/locales/pl';
+import { IdeasComponent } from './mainWindow/ideas/ideas.component';
 registerLocaleData(localePl);
 
 @NgModule({
@@ -22,7 +23,8 @@ registerLocaleData(localePl);
     NavigationComponent,
     RankingComponent,
     DashboardComponent,
-    MatchesComponent
+    MatchesComponent,
+    IdeasComponent
   ],
   imports: [
     BrowserModule,
