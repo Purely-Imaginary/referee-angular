@@ -14,6 +14,7 @@ import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localePl from '@angular/common/locales/pl';
 import { IdeasComponent } from './mainWindow/ideas/ideas.component';
+import { AbsPipe } from './abs.pipe';
 registerLocaleData(localePl);
 
 @NgModule({
@@ -24,7 +25,8 @@ registerLocaleData(localePl);
     RankingComponent,
     DashboardComponent,
     MatchesComponent,
-    IdeasComponent
+    IdeasComponent,
+    AbsPipe
   ],
   imports: [
     BrowserModule,

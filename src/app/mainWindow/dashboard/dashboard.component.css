@@ -1,5 +1,5 @@
 table {
-    table-layout: fixed;
+    /* table-layout: fixed; */
     width: 100%;
     border-collapse: collapse;
     text-align: center;
@@ -18,7 +18,7 @@ td.left{
 }
 
 td .rating {
-    font-size: 0.6em;
+    font-size: 0.7em;
 }
 
 .right .rating {
@@ -36,4 +36,18 @@ td.winner {
 
 .date {
     font-size: 0.8em;
+}
+
+div.leftArrow::before {
+    content: "◀";
+    padding-right: 5px;
+}
+
+div.rightArrow::after {
+    content: "▶";
+    padding-left: 5px;
+}
+
+.divider {
+    text-align: center;
 }

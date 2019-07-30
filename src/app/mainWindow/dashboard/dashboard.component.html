@@ -1,13 +1,13 @@
-<p>Last matches</p>
+<h4 class="divider">Last matches</h4>
 
 <table>
     <tr>
         <th>Date</th>
         <th colspan=2>Team 1</th>
-        <th>Score</th>
+        <th>Outcome</th>
         <th colspan=2>Team 2</th>
         <th>Estimated score</th>
-        <th>Rating change</th>
+        <th>Lifetime Stats</th>
     </tr>
     <tr *ngFor='let match of data'>
         <td class='date'>
@@ -16,22 +16,27 @@
         </td>
         <td class='right' [ngClass]="{'winner': match.team1.score == 10}">
             <div class="name">{{ match.team1.player1.name }}</div>
-            <div class="rating">{{ match.team1.player1.present_rating | number:'1.1-1' }}</div>
+            <div class="rating">{{ match.team1.player1.presentRating | number:'1.0-0' }}</div>
         </td> 
         <td class='left' [ngClass]="{'winner': match.team1.score == 10}">
             <div class="name">{{ match.team1.player2.name }}</div>
-            <div class="rating">{{ match.team1.player2.present_rating | number:'1.1-1' }}</div>
+            <div class="rating">{{ match.team1.player2.presentRating | number:'1.0-0' }}</div>
             </td>
-        <td>{{ match.team1.score }} - {{ match.team2.score }}</td>
+        <td>
+            <div>{{ match.team1.score }} - {{ match.team2.score }}</div>
+            <div class='rating' [ngClass]="match.team1.ratingChange > 0 ? 'leftArrow' : 'rightArrow'">
+                {{ match.team1.ratingChange | abs | number:'1.0-1' }}
+            </div>
+        </td>
         <td class='right' [ngClass]="{'winner': match.team2.score == 10}">
             <div class="name">{{ match.team2.player1.name }}</div>
-            <div class="rating">{{ match.team2.player1.present_rating | number:'1.1-1' }}</div>
+            <div class="rating">{{ match.team2.player1.presentRating | number:'1.0-0' }}</div>
         </td> 
         <td class='left' [ngClass]="{'winner': match.team2.score == 10}">
             <div class="name">{{ match.team2.player2.name }}</div>
-            <div class="rating">{{ match.team2.player2.present_rating | number:'1.1-1' }}</div>
+            <div class="rating">{{ match.team2.player2.presentRating | number:'1.0-0' }}</div>
             </td>
         <td>{{ match.team1.estimatedScore | number:'1.0-1' }} - {{ match.team2.estimatedScore | number:'1.0-1' }}</td>
-        <td>{{ match.team1.ratingChange | number:'1.0-1' }}</td>
+        <td>Pla : ceho (ld:er)</td>
     </tr>
 </table>
