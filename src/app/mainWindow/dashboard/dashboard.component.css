@@ -30,8 +30,8 @@ td .rating {
 }
 
 td.winner {
-    font-weight: bolder;
-    color: white;
+    font-weight: bold;
+    color: #6db9ff;
 }
 
 .date {
@@ -50,4 +50,12 @@ div.rightArrow::after {
 
 .divider {
     text-align: center;
+}
+
+.outcome span {
+    color: #754d4d
+}
+
+.outcome span.winner {
+    color: #4d754d
 }

@@ -19,7 +19,6 @@
         <td class='rating'>
             <div>{{player.presentRating | number:'1.0-0'}}</div>
             <div class='subscript' 
-            *ngIf="player.ratingChange !== 0"
             [ngClass]="player.ratingChange > 0 ? 'positive' : 'negative'">
                 ({{ player.ratingChange | number:'1.0-0'}})</div>
         </td>

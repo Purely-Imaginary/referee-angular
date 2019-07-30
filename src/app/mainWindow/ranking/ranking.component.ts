@@ -44,7 +44,7 @@ export class RankingComponent implements OnInit {
       const enhancedData = data.map((player: any) => {
         player.timeSinceLastPlayed = moment(player.lastPlayed).fromNow();
         return player;
-      }).filter(player => player.wins + player.losses > 10);
+      })
       console.log(enhancedData);
       this.data = enhancedData;
     });
