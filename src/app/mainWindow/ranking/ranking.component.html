@@ -13,7 +13,8 @@
     </tr>
     <tr *ngFor='let player of data; let i = index' 
     [ngClass]="{'unsure': (player.wins + player.losses) <= 30,
-    'unranked': (player.wins + player.losses) <= 20}"> 
+    'unranked': (player.wins + player.losses) <= 20}"
+    [routerLink]="['/player', player.id]"> 
         <td>{{i + 1}}</td>
         <td>{{player.name}}</td>
         <td class='rating'>

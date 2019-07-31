@@ -15,7 +15,7 @@
             <div>{{ match.time }}</div>
         </td>
         <td class='right' [ngClass]="{'winner': match.team1.score == 10}">
-            <div class="name">{{ match.team1.player1.name }}</div>
+            <div class="name" [routerLink]="['/player', match.team1.player1.id]">{{ match.team1.player1.name }}</div>
             <div class="rating">{{ match.team1.player1.presentRating | number:'1.0-0' }}</div>
         </td> 
         <td class='left' [ngClass]="{'winner': match.team1.score == 10}">

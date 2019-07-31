@@ -13,7 +13,7 @@ export class NavigationComponent implements OnInit {
   navigationPoints = [
     { name: 'Rankings' , url: '/ranking' , icon: '★', component: RankingComponent},
     { name: 'Matches' , url: '/matches' , icon: '☉'},
-    { name: 'Your profile' , url: '/myProfile' , icon: '☣'},
+    { name: 'Your profile' , url: '/player/1' , icon: '☣'},
     { name: 'Ideas' , url: '/ideas' , icon: '✅', component: IdeasComponent},
   ];
 
