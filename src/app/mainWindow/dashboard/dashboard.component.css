@@ -52,10 +52,19 @@ div.rightArrow::after {
     text-align: center;
 }
 
+.outcome {
+    font-weight: 900;
+}
+
 .outcome span {
     color: #754d4d
 }
 
 .outcome span.winner {
     color: #4d754d
+}
+
+td.player:hover {
+    cursor: pointer;
+    background-color: rgb(0, 0, 50);
 }

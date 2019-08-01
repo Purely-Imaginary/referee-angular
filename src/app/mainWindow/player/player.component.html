@@ -1,20 +1,52 @@
-<h4 class="divider">Player profile</h4>
+<h4 class="divider">{{ data.name }}</h4>
+<div class="profileWrapper">
+    <div class="leftPanel">
+        <div class="row">
+            <div class="firstMatch" *ngIf=data.matches>
+                <div>First match:</div>
+                <div class="value">{{ data.matches[0].timestamp | date}}</div>
+                <div class="subscript">{{ data.matches[0].timestamp | fromNow }}</div>
+            </div>
+            <div class="matchesPlayed">
+                <div>Played matches:</div>
+                <div class="value">{{ data.wins + data.losses}}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="presentRating">
+                <div>Present rating:</div>
+                <div class="value">{{ data.presentRating | number:'1.0-2'}}</div>
+                <div class="subscript"
+                [ngClass]="data.ratingChange > 0 ? 'green positive' : 'red negative'">
+                    {{ data.ratingChange | abs | number:'1.0-2' }})
+                </div>
+            </div>
+            <div class="lastTrend" *ngIf=data.matches>
+                <div>Trend:</div>
+                <div class="matchesGraph">
+                    <div class="match" 
+                    *ngFor="let match of data.matches.slice().reverse().slice(0,5).reverse()" 
+                    [ngClass]="match.team1.score > match.team2.score ? 'won' : 'lost'">
+                    <span>{{ match.team1.score > match.team2.score ? 'W' : ' L' }}</span><br>
+                    <span>{{ match.team1.ratingChange | number:'1.0-1'}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        Present place
+        Best / worst rating
+            
+        Progress chart
+            
+        Best teammate
+        Most frequent battle
 
-Name
-First match
-Present rating
-Trend
-Present place
-Best / worst rating
-First match at
-Last 10 matches
-ds
+        <div id="chart">
 
-Progress chart
+        </div>
+    </div>
+    <div class="rightPanel">
+        Last 10 matches
 
-Best teammate
-Most frequent battle
-
-<div id="chart">
-
+    </div>
 </div>

@@ -1,0 +1,75 @@
+.profileWrapper {
+    display: flex;
+}
+
+.leftPanel, .rightPanel {
+    width: 50%;
+}
+
+h4 {
+    text-align: center;
+}
+
+.leftPanel .row {
+    display: flex;
+    justify-content: space-evenly;
+    height: 6em;
+    font-size: 1.0em;
+    align-items: center;
+    text-align: center;
+}
+
+.row > div {
+    width: 50%;
+}
+
+.row .value {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.subscript {
+    font-size: 0.6em;
+    margin-top: -5px;
+}
+
+.green {
+    color: #4d754d;
+}
+
+.red {
+    color: #754d4d;
+}
+
+.positive::before {
+    content: "(+";
+}
+
+.negative::before {
+    content: "(-";
+}
+
+.match {
+    font-size: 0.7em;
+    width:35px;
+    height:35px;
+}
+
+.match.won {
+    background-color: #4d754d;
+}
+
+.match.lost {
+    background-color: #754d4d;
+}
+
+.matchesGraph {
+    display: flex;
+    justify-content: center;
+}
+
+.matchesGraph > div {
+    line-height: 16px;
+    border-radius: 8px;
+    border: 2px solid rgb(102, 102, 169);
+}

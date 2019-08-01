@@ -40,20 +40,27 @@ export class PlayerComponent implements OnInit {
       // var dateOptions = { year: 'numeric', month: 'numeric', day: 'numeric' };
       console.log(data);
       this.data = data;
-      const progressDataPoints = [];
+      let progressDataPoints = [];
       this.data.progress.forEach(progressPoint => {
-
         progressDataPoints.push({y: Math.round(progressPoint.rating), x: new Date(progressPoint.timestamp)})
       });
+      // progressDataPoints = progressDataPoints.slice(progressDataPoints.length-15,progressDataPoints.length)
       this.chart = new CanvasJS.Chart("chart", {
         zoomEnabled: true,
+        width: 500,
+        height: 250,
+        theme: "dark1",
         animationEnabled: true, 
         exportEnabled: true,
-        title: {
+        subtitles: [{
           text: "Progress over time"
-        },
+        }],
         axisX:{
           valueFormatString: "DD-MM-YY",
+          crosshair: {
+            enabled: true,
+            snapToDataPoint: true
+          }
         },
         axisY:{
           includeZero: false

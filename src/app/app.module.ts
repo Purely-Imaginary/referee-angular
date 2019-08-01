@@ -16,6 +16,7 @@ import localePl from '@angular/common/locales/pl';
 import { IdeasComponent } from './mainWindow/ideas/ideas.component';
 import { AbsPipe } from './abs.pipe';
 import { PlayerComponent } from './mainWindow/player/player.component';
+import { FromNowPipe } from './from-now.pipe';
 registerLocaleData(localePl);
 
 @NgModule({
@@ -28,7 +29,8 @@ registerLocaleData(localePl);
     MatchesComponent,
     IdeasComponent,
     AbsPipe,
-    PlayerComponent
+    PlayerComponent,
+    FromNowPipe
   ],
   imports: [
     BrowserModule,
