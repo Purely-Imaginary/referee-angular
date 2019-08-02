@@ -29,7 +29,9 @@ export class PlayerComponent implements OnInit {
   }
   
   async ngOnInit() {
-    await this.getRanking()
+    this.route.params.subscribe(async routeParams => {
+      await this.getRanking()
+    });
     
 
   }
@@ -41,8 +43,18 @@ export class PlayerComponent implements OnInit {
       console.log(data);
       this.data = data;
       let progressDataPoints = [];
+      this.data.minRating = {value:9000, timestamp:0}
+      this.data.maxRating = {value:0, timestamp:0}
+
       this.data.progress.forEach(progressPoint => {
         progressDataPoints.push({y: Math.round(progressPoint.rating), x: new Date(progressPoint.timestamp)})
+        if (progressPoint.rating > this.data.maxRating.value) {
+          this.data.maxRating = {value:progressPoint.rating, timestamp:progressPoint.timestamp}
+        }
+        if (progressPoint.rating < this.data.minRating.value) {
+          this.data.minRating = {value:progressPoint.rating, timestamp:progressPoint.timestamp}
+        }
+
       });
       // progressDataPoints = progressDataPoints.slice(progressDataPoints.length-15,progressDataPoints.length)
       this.chart = new CanvasJS.Chart("chart", {

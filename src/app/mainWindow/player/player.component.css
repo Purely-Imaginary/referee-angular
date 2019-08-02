@@ -30,7 +30,7 @@ h4 {
 
 .subscript {
     font-size: 0.6em;
-    margin-top: -5px;
+    margin-top: -2px;
 }
 
 .green {
@@ -72,4 +72,37 @@ h4 {
     line-height: 16px;
     border-radius: 8px;
     border: 2px solid rgb(102, 102, 169);
+}
+
+.matchList {
+    font-size: 0.8em;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.matchListElement.lost {
+    background-color: #382525;
+}
+
+.matchListElement.won {
+    background-color: #213321;
+}
+
+.matchListElement {
+    margin: 0 5px;
+}
+
+.outcome {
+    font-size: 1.8em;
+    font-weight: 800;
+}
+
+.name {
+    line-height: 1.5em;
+    cursor: pointer;
+}
+
+.edgeRatingValues {
+    display:flex;
+    justify-content: space-evenly;
 }
