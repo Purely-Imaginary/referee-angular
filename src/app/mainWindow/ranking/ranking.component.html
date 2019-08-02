@@ -6,10 +6,10 @@
         <th>Played</th>
         <th>Wins</th>
         <th>Losses</th>
-        <th>Goals scored</th>
-        <th>Goals lost</th>
-        <th>Avg score</th>
-        <th>Last played</th>
+        <th class="hideNarrow">Goals scored</th>
+        <th class="hideNarrow">Goals lost</th>
+        <th class="hideNarrow">Avg score</th>
+        <th class="hideNarrow">Last played</th>
     </tr>
     <tr *ngFor='let player of data; let i = index' 
     [ngClass]="{'unsure': (player.wins + player.losses) <= 30,
@@ -26,16 +26,16 @@
         <td>{{player.wins + player.losses}}</td>
         <td class='wins'>{{player.wins}}</td>
         <td class='losses'>{{player.losses}}</td>
-        <td>{{player.goalsScored}}</td>
-        <td>{{player.goalsLost}}</td>
-        <td class='avg'>{{(player.goalsScored / (player.wins + player.losses)) | number:'1.0-1'}} :
+        <td class="hideNarrow">{{player.goalsScored}}</td>
+        <td class="hideNarrow">{{player.goalsLost}}</td>
+        <td class='avg hideNarrow'>{{(player.goalsScored / (player.wins + player.losses)) | number:'1.0-1'}} :
             {{(player.goalsLost / (player.wins + player.losses)) | number:'1.0-1'}} 
             <span class='avg' [ngClass]="{'positive': player.goalsScored > player.goalsLost}">
                 ({{((player.goalsScored / (player.wins + player.losses)) - 
             (player.goalsLost / (player.wins + player.losses))) | number:'1.0-1'}})
         </span>
         </td>
-        <td>
+        <td class="hideNarrow">
             <div>{{player.lastPlayed | date}}</div>
             <div class='subscript'>{{player.timeSinceLastPlayed}}</div>
         </td>

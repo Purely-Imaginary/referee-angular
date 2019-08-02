@@ -68,3 +68,9 @@ td.player:hover {
     cursor: pointer;
     background-color: rgb(0, 0, 50);
 }
+
+@media screen and (max-width: 1150px) {
+    .hideNarrow {
+        display: none;
+    }
+}

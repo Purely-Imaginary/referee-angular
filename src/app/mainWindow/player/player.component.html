@@ -1,11 +1,12 @@
 <h4 class="divider">{{ data.name }}</h4>
 <div class="profileWrapper">
     <div class="leftPanel">
-        <div class="row">
+        <div class="row" *ngIf=data.matches>
             <div class="presentRating">
                 <div>Present rating:</div>
                 <div class="value">{{ data.presentRating | number:'1.0-2'}}</div>
                 <div class="subscript"
+                *ngIf="data.ratingChange !== 0"
                 [ngClass]="data.ratingChange > 0 ? 'green positive' : 'red negative'">
                     {{ data.ratingChange | abs | number:'1.0-2' }})
                 </div>
@@ -13,10 +14,9 @@
             <div class="currentRank">
                 <div>Current rank:</div>
                 <div class="value">{{ data.currentRank }}</div>
-                <div class="subscript">&nbsp;</div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" *ngIf=data.matches>
             <div class="edgeRatings">
                 <div>Best / worst rating:</div>
                 <div class=edgeRatingValues>
@@ -46,36 +46,54 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" *ngIf=data.matches>
             <div class="firstMatch" *ngIf=data.matches>
                 <div>First match:</div>
                 <div class="value">{{ data.matches[0].timestamp | date}}</div>
                 <div class="subscript">{{ data.matches[0].timestamp | fromNow }}</div>
             </div>
-            <div class="matchesPlayed">
-                <div>Played matches:</div>
-                <div class="value">{{ data.wins + data.losses}}</div>
-                <div class="subscript">&nbsp;</div>
+            <div>
+                <div>Last match:</div>
+                <div class="value">{{ data.matches[data.matches.length - 1].timestamp | date}}</div>
+                <div class="subscript">{{ data.matches[data.matches.length - 1].timestamp | fromNow}}</div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" *ngIf=data.matches>
+            <div class="matchesPlayed">
+                <div>Matches summary:</div>
+                <div class="value">{{ data.wins + data.losses}} 
+                    (<span class="green">{{ data.wins }}</span> : <span class="red">{{ data.losses }}</span>)</div>
+                <div class="subscript">{{ data.matchesPerDay | number:'1.0-2' }} matches per day</div>
+            </div>
+            <div class="firstMatch" *ngIf=data.matches>
+                <div>Goals summary:</div>
+                <div class="value">
+                    <span class="green">{{ data.goalsScored }}</span> : <span class="red">{{ data.goalsLost }}</span>
+                </div>
+                <div class="subscript">Avg: 
+                        <span class="green">{{ data.goalsScored / data.matches.length | number:'1.0-2'}}</span>
+                        : <span class="red">{{ data.goalsLost / data.matches.length | number:'1.0-2' }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf=data.matches>
             <div>
-                <div>Best friend:</div>
+                <div>Best teammate:</div>
                 <div class="value">John Placeholder</div>
-                <div class="subscript">44 matches</div>
+                <div class="subscript">X matches</div>
             </div>
             <div>
                 <div>Biggest enemies:</div>
                 <div class="value">John Placeholder<br>Mary Space-Filler</div>
-                <div class="subscript">44 matches</div>
+                <div class="subscript">X matches</div>
             </div>
         </div>
         <div id="chart">
 
         </div>
     </div>
-    <div class="rightPanel">
-        Last 10 matches
+    <div class="rightPanel" *ngIf=data.matches>
+        Last 15 matches
         <table class="matchList" *ngIf=data.matches>
             <thead>
                 <th>Date</th>

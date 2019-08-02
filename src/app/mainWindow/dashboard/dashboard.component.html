@@ -2,15 +2,15 @@
 
 <table>
     <tr>
-        <th>Date</th>
+        <th class="hideNarrow">Date</th>
         <th colspan=2>Team 1</th>
         <th>Outcome</th>
         <th colspan=2>Team 2</th>
-        <th>Estimated score</th>
-        <th>Lifetime Stats</th>
+        <th class="hideNarrow">Estimated score</th>
+        <th class="hideNarrow">Lifetime Stats</th>
     </tr>
     <tr *ngFor='let match of data'>
-        <td class='date'>
+        <td class='date hideNarrow'>
             <div>{{ match.date }}</div>
             <div>{{ match.time }}</div>
         </td>
@@ -39,8 +39,8 @@
             <div class="name">{{ match.team2.player2.name }}</div>
             <div class="rating">{{ match.team2.player2.presentRating | number:'1.0-0' }}</div>
             </td>
-        <td>{{ match.team1.estimatedScore | number:'1.0-1' }} : {{ match.team2.estimatedScore | number:'1.0-1' }}</td>
-        <td>{{ match.team1.pastSummedScoreAgainstThisTeam }} : {{ match.team2.pastSummedScoreAgainstThisTeam }} 
+        <td class="hideNarrow">{{ match.team1.estimatedScore | number:'1.0-1' }} : {{ match.team2.estimatedScore | number:'1.0-1' }}</td>
+        <td class="hideNarrow">{{ match.team1.pastSummedScoreAgainstThisTeam }} : {{ match.team2.pastSummedScoreAgainstThisTeam }} 
             ({{ match.team1.pastWinsAgainstThisTeam }}:{{ match.team2.pastWinsAgainstThisTeam }})</td>
     </tr>
 </table>

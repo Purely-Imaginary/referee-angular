@@ -84,6 +84,8 @@ export class PlayerComponent implements OnInit {
         }]
       });
     this.chart.render();
+    const playspanInDays = (Date.now() - this.data.matches[0].timestamp) / 86400000;
+    this.data.matchesPerDay = this.data.matches.length / playspanInDays;
     });
   }
 

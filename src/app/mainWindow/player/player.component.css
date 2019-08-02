@@ -106,3 +106,9 @@ h4 {
     display:flex;
     justify-content: space-evenly;
 }
+
+#chart {
+    width: 500px;
+    height: 250px;
+    margin-top: 40px;
+}
