@@ -13,7 +13,7 @@ h4 {
 .leftPanel .row {
     display: flex;
     justify-content: space-evenly;
-    height: 6em;
+    min-height: 6em;
     font-size: 1.0em;
     align-items: center;
     text-align: center;
@@ -111,4 +111,12 @@ h4 {
     width: 500px;
     height: 250px;
     margin-top: 40px;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.topTeammate {
+    margin-bottom: 5px;
 }

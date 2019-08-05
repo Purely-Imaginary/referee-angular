@@ -47,7 +47,8 @@ export class PlayerComponent implements OnInit {
       this.data.maxRating = {value:0, timestamp:0}
 
       this.data.progress.forEach(progressPoint => {
-        progressDataPoints.push({y: Math.round(progressPoint.rating), x: new Date(progressPoint.timestamp)})
+        // progressDataPoints.push({y: Math.round(progressPoint.rating), x: new Date(progressPoint.timestamp)})
+        progressDataPoints.push({y: Math.round(progressPoint.rating), label: moment.unix(progressPoint.timestamp / 1000).format("YYYY-MM-DD HH:mm")})
         if (progressPoint.rating > this.data.maxRating.value) {
           this.data.maxRating = {value:progressPoint.rating, timestamp:progressPoint.timestamp}
         }
@@ -68,7 +69,7 @@ export class PlayerComponent implements OnInit {
           text: "Progress over time"
         }],
         axisX:{
-          valueFormatString: "DD-MM-YY",
+          // valueFormatString: "DD-MM-YY",
           crosshair: {
             enabled: true,
             snapToDataPoint: true

@@ -78,14 +78,18 @@
         </div>
         <div class="row" *ngIf=data.matches>
             <div>
-                <div>Best teammate:</div>
-                <div class="value">John Placeholder</div>
-                <div class="subscript">X matches</div>
+                <div>Top teammates:</div>
+                <div class='topTeammate' *ngFor="let friend of data.skirmishes.friends.slice(0,3)">
+                    <div class="value clickable" [routerLink]="['/player', friend[1]]">{{ friend[0] }}</div>
+                    <div class="subscript">{{ friend[2] }} played matches</div>
+                </div>
             </div>
             <div>
                 <div>Biggest enemies:</div>
-                <div class="value">John Placeholder<br>Mary Space-Filler</div>
-                <div class="subscript">X matches</div>
+                <div class="value">{{ data.skirmishes.enemies[0][0] }}<br>
+                    <span *ngIf="data.skirmishes.enemies[0][1] !== data.skirmishes.enemies[0][0]">
+                        {{ data.skirmishes.enemies[0][1] }}</span></div>
+                <div class="subscript">{{ data.skirmishes.enemies[0][2]}} played matches</div>
             </div>
         </div>
         <div id="chart">
@@ -122,8 +126,8 @@
                         <span [ngClass]="{'winner': match.team1.score == 10}">{{ match.team1.score }}</span> : 
                         <span [ngClass]="{'winner': match.team2.score == 10}">{{ match.team2.score }}</span>
                     </div>
-                    <div class='rating' [ngClass]="match.team1.ratingChange > 0 ? 'positive' : 'negative'">
-                        {{ match.team1.ratingChange | abs | number:'1.0-1' }})
+                    <div class='rating' [ngClass]="match.team1.ratingChange > 0 ? 'positive' : 'negative'"
+                        >{{ match.team1.ratingChange | abs | number:'1.0-1' }})
                     </div>
                 </td>
                 <td class="team2">

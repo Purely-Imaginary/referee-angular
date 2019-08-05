@@ -17,6 +17,7 @@ import { IdeasComponent } from './mainWindow/ideas/ideas.component';
 import { AbsPipe } from './abs.pipe';
 import { PlayerComponent } from './mainWindow/player/player.component';
 import { FromNowPipe } from './from-now.pipe';
+import { ReplacePipe } from './replace.pipe';
 registerLocaleData(localePl);
 
 @NgModule({
@@ -30,7 +31,8 @@ registerLocaleData(localePl);
     IdeasComponent,
     AbsPipe,
     PlayerComponent,
-    FromNowPipe
+    FromNowPipe,
+    ReplacePipe
   ],
   imports: [
     BrowserModule,

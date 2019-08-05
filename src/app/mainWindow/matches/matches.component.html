@@ -2,20 +2,20 @@
         <tr>
             <th>ID</th>
             <th>Date</th>
-            <th colspan=2>Team 1</th>
+            <th>Team 1</th>
             <th>Score</th>
-            <th colspan=2>Team 2</th>
+            <th>Team 2</th>
             <th>Estimated score</th>
             <th>Rating change</th>
         </tr>
         <tr *ngFor='let match of data; index as i;'>
             <td>{{ data.length - i }}</td>
             <td>{{ match.date }} - {{ match.time }}</td>
-            <td class='right' [ngClass]="{'winner': match.team1.score == 10}">{{ match.team1.player1.name }} - </td> 
-            <td class='left' [ngClass]="{'winner': match.team1.score == 10}">{{ match.team1.player2.name }}</td>
+            <td [ngClass]="{'winner': match.team1.score == 10}">{{ match.team1.player1.name }} - 
+                {{ match.team1.player2.name }}</td>
             <td>{{ match.team1.score }} - {{ match.team2.score }}</td>
-            <td class='right' [ngClass]="{'winner': match.team2.score == 10}">{{ match.team2.player1.name }} -</td> 
-            <td class='left' [ngClass]="{'winner': match.team2.score == 10}">{{ match.team2.player2.name }}</td>
+            <td [ngClass]="{'winner': match.team2.score == 10}">{{ match.team2.player1.name }} -
+                {{ match.team2.player2.name }}</td>
             <td>{{ match.team1.estimatedScore | number:'1.0-1' }} - {{ match.team2.estimatedScore | number:'1.0-1' }}</td>
             <td>{{ match.team1.ratingChange | number:'1.0-1' }}</td>
         </tr>
