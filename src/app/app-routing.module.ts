@@ -5,9 +5,11 @@ import { DashboardComponent } from './mainWindow/dashboard/dashboard.component';
 import { MatchesComponent } from './mainWindow/matches/matches.component';
 import { IdeasComponent } from './mainWindow/ideas/ideas.component';
 import { PlayerComponent } from './mainWindow/player/player.component';
+import { MatchComponent } from './mainWindow/match/match.component';
 
 
 const routes: Routes = [
+  { path: 'match/:id', component: MatchComponent },
   { path: 'player/:id', component: PlayerComponent },
   { path: 'ideas', component: IdeasComponent },
   { path: 'ranking', component: RankingComponent },

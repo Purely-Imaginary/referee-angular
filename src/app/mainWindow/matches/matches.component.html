@@ -8,7 +8,7 @@
             <th>Estimated score</th>
             <th>Rating change</th>
         </tr>
-        <tr *ngFor='let match of data; index as i;'>
+        <tr *ngFor='let match of data; index as i;' [routerLink]="['/match', match._id]">
             <td>{{ data.length - i }}</td>
             <td>{{ match.date }} - {{ match.time }}</td>
             <td [ngClass]="{'winner': match.team1.score == 10}">{{ match.team1.player1.name }} - 

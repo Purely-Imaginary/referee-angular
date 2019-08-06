@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-matches',
-  templateUrl: './matches.component.html',
-  styleUrls: ['./matches.component.css']
+  selector: 'app-match',
+  templateUrl: './match.component.html',
+  styleUrls: ['./match.component.css']
 })
-export class MatchesComponent implements OnInit {
+export class MatchComponent implements OnInit {
+  tempData:string;
   data:any[] = [];
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private route: ActivatedRoute) { }
 
   private extractData(res: Response) {
     let body = res;
@@ -17,7 +19,8 @@ export class MatchesComponent implements OnInit {
   }
 
   getData(){
-    const endpoint = 'http://localhost:3000/allMatches';
+    const matchId = this.route.snapshot.paramMap.get("id")
+    const endpoint = `http://localhost:3000/match/${matchId}`;
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
@@ -40,7 +43,9 @@ export class MatchesComponent implements OnInit {
     this.getData().subscribe((data: []) => {
       console.log(data);
       this.data = data;
+      this.tempData = JSON.stringify(data);
     });
   }
+
 
 }

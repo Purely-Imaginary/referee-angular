@@ -18,6 +18,7 @@ import { AbsPipe } from './abs.pipe';
 import { PlayerComponent } from './mainWindow/player/player.component';
 import { FromNowPipe } from './from-now.pipe';
 import { ReplacePipe } from './replace.pipe';
+import { MatchComponent } from './mainWindow/match/match.component';
 registerLocaleData(localePl);
 
 @NgModule({
@@ -32,7 +33,8 @@ registerLocaleData(localePl);
     AbsPipe,
     PlayerComponent,
     FromNowPipe,
-    ReplacePipe
+    ReplacePipe,
+    MatchComponent
   ],
   imports: [
     BrowserModule,
