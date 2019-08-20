@@ -122,10 +122,16 @@ h4 {
 }
 
 @media screen and (max-width: 1200px) {
-    .rightPanel {
+    .lifetime, .date {
         display: none;
     }
     .leftPanel {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .rightPanel {
+        display: none;
     }
 }
