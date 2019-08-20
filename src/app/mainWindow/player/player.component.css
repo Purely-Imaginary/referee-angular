@@ -120,3 +120,12 @@ h4 {
 .topTeammate {
     margin-bottom: 5px;
 }
+
+@media screen and (max-width: 1200px) {
+    .rightPanel {
+        display: none;
+    }
+    .leftPanel {
+        width: 100%;
+    }
+}
