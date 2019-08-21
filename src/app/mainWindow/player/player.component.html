@@ -20,16 +20,16 @@
             <div class="edgeRatings">
                 <div>Best / worst rating:</div>
                 <div class=edgeRatingValues>
-                    <div class="red">
-                        <div class="value">{{ data.minRating.value | number:'1.0-2'}}</div>
-                        <div class="subscript">
-                            {{ data.minRating.timestamp | date }}
-                        </div>
-                    </div>
                     <div class="green">
                         <div class="value">{{ data.maxRating.value | number:'1.0-2'}}</div>
                         <div class="subscript">
                             {{ data.maxRating.timestamp | date }}
+                        </div>
+                    </div>
+                    <div class="red">
+                        <div class="value">{{ data.minRating.value | number:'1.0-2'}}</div>
+                        <div class="subscript">
+                            {{ data.minRating.timestamp | date }}
                         </div>
                     </div>
                 </div>
@@ -79,8 +79,8 @@
         <div class="row" *ngIf=data.matches>
             <div>
                 <div>Top teammates:</div>
-                <div class='topTeammate' *ngFor="let friend of data.skirmishes.friends.slice(0,3)">
-                    <div class="value clickable" [routerLink]="['/player', friend[1]]">{{ friend[0] }}</div>
+                <div class='topTeammate hoverShow' *ngFor="let friend of data.skirmishes.friends.slice(0,3)">
+                    <div class="value" [routerLink]="['/player', friend[1]]">{{ friend[0] }}</div>
                     <div class="subscript">{{ friend[2] }} played matches</div>
                 </div>
             </div>
@@ -114,10 +114,10 @@
                     <div>{{ match.time }}</div>
                 </td>
                 <td class="team1">
-                    <div class='upper player' [ngClass]="{'winner': match.team1.score == 10}" [routerLink]="['/player', match.team1.player1.id]">
+                    <div class='upper player hoverShow' [ngClass]="{'winner': match.team1.score == 10}" [routerLink]="['/player', match.team1.player1.id]">
                         <div class="name" >{{ match.team1.player1.name }}</div>
                     </div> 
-                    <div class='lower player' [ngClass]="{'winner': match.team1.score == 10}" [routerLink]="['/player', match.team1.player2.id]">
+                    <div class='lower player hoverShow' [ngClass]="{'winner': match.team1.score == 10}" [routerLink]="['/player', match.team1.player2.id]">
                         <div class="name">{{ match.team1.player2.name }}</div>
                     </div>
                 </td>
@@ -131,10 +131,10 @@
                     </div>
                 </td>
                 <td class="team2">
-                    <div class='upper player' [ngClass]="{'winner': match.team2.score == 10}" [routerLink]="['/player', match.team2.player1.id]">
+                    <div class='upper player hoverShow' [ngClass]="{'winner': match.team2.score == 10}" [routerLink]="['/player', match.team2.player1.id]">
                         <div class="name">{{ match.team2.player1.name }}</div>
                     </div> 
-                    <div class='lower player' [ngClass]="{'winner': match.team2.score == 10}" [routerLink]="['/player', match.team2.player2.id]">
+                    <div class='lower player hoverShow' [ngClass]="{'winner': match.team2.score == 10}" [routerLink]="['/player', match.team2.player2.id]">
                         <div class="name">{{ match.team2.player2.name }}</div>
                     </div>
                 </td>

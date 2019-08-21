@@ -14,11 +14,11 @@
             <div>{{ match.date }}</div>
             <div>{{ match.time }}</div>
         </td>
-        <td class='right player' [ngClass]="{'winner': match.team1.score == 10}" [routerLink]="['/player', match.team1.player1.id]">
+        <td class='right player hoverShow' [ngClass]="{'winner': match.team1.score == 10}" [routerLink]="['/player', match.team1.player1.id]">
             <div class="name" >{{ match.team1.player1.name }}</div>
             <div class="rating">{{ match.team1.player1.presentRating | number:'1.0-0' }}</div>
         </td> 
-        <td class='left player' [ngClass]="{'winner': match.team1.score == 10}" [routerLink]="['/player', match.team1.player2.id]">
+        <td class='left player hoverShow' [ngClass]="{'winner': match.team1.score == 10}" [routerLink]="['/player', match.team1.player2.id]">
             <div class="name">{{ match.team1.player2.name }}</div>
             <div class="rating">{{ match.team1.player2.presentRating | number:'1.0-0' }}</div>
             </td>
@@ -31,11 +31,11 @@
                 {{ match.team1.ratingChange | abs | number:'1.0-1' }}
             </div>
         </td>
-        <td class='right player' [ngClass]="{'winner': match.team2.score == 10}" [routerLink]="['/player', match.team2.player1.id]">
+        <td class='right player hoverShow' [ngClass]="{'winner': match.team2.score == 10}" [routerLink]="['/player', match.team2.player1.id]">
             <div class="name">{{ match.team2.player1.name }}</div>
             <div class="rating">{{ match.team2.player1.presentRating | number:'1.0-0' }}</div>
         </td> 
-        <td class='left player' [ngClass]="{'winner': match.team2.score == 10}" [routerLink]="['/player', match.team2.player2.id]">
+        <td class='left player hoverShow' [ngClass]="{'winner': match.team2.score == 10}" [routerLink]="['/player', match.team2.player2.id]">
             <div class="name">{{ match.team2.player2.name }}</div>
             <div class="rating">{{ match.team2.player2.presentRating | number:'1.0-0' }}</div>
             </td>
