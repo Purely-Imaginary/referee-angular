@@ -4,6 +4,7 @@
         <th>Name</th>
         <th>Rating<br><small>(7 days change)</small></th>
         <th>Played</th>
+        <th>Win ratio</th>
         <th>Wins</th>
         <th>Losses</th>
         <th class="hideNarrow">Goals scored</th>
@@ -25,6 +26,9 @@
                 ({{ player.ratingChange | number:'1.0-0'}})</div>
         </td>
         <td>{{player.wins + player.losses}}</td>
+        <td class='winRatio'
+            [ngClass]="player.wins / (player.wins + player.losses) > 0.5 ? 'positive' : 'negative'">
+        {{(player.wins / (player.wins + player.losses))*100 | number:'1.0-2'}}%</td>
         <td class='wins'>{{player.wins}}</td>
         <td class='losses'>{{player.losses}}</td>
         <td class="hideNarrow">{{player.goalsScored}}</td>
