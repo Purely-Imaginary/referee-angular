@@ -20,7 +20,9 @@
                 [itemTemplate]="itemTemplate"
                 [notFoundTemplate]="notFoundTemplate">                                 
             </ng-autocomplete>
+            <p *ngIf=chosenPlayers.player11> Rank: {{chosenPlayers.player11.currentRank}}</p>
             <p *ngIf=chosenPlayers.player11> Rating: {{chosenPlayers.player11.presentRating | number:'1.0-0'}}</p>
+            <p *ngIf=chosenPlayers.player11> Winrate: {{(chosenPlayers.player11.wins / (chosenPlayers.player11.wins + chosenPlayers.player11.losses)) * 100 | number:'1.0-1'}}%</p>
         </div>
         <div class="ng-autocomplete playerPicker">
             <ng-autocomplete 
@@ -33,7 +35,9 @@
                  [itemTemplate]="itemTemplate"
                  [notFoundTemplate]="notFoundTemplate">                                 
             </ng-autocomplete>
+            <p *ngIf=chosenPlayers.player12> Rank: {{chosenPlayers.player12.currentRank}}</p>
             <p *ngIf=chosenPlayers.player12> Rating: {{chosenPlayers.player12.presentRating | number:'1.0-0'}}</p>
+            <p *ngIf=chosenPlayers.player12> Winrate: {{(chosenPlayers.player12.wins / (chosenPlayers.player12.wins + chosenPlayers.player12.losses)) * 100 | number:'1.0-1'}}%</p>
         </div>
     </div>
     <div>
@@ -51,7 +55,9 @@
                     [itemTemplate]="itemTemplate"
                     [notFoundTemplate]="notFoundTemplate">                                 
                 </ng-autocomplete>
+                <p *ngIf=chosenPlayers.player21> Rank: {{chosenPlayers.player21.currentRank}}</p>
                 <p *ngIf=chosenPlayers.player21> Rating: {{chosenPlayers.player21.presentRating | number:'1.0-0'}}</p>
+                <p *ngIf=chosenPlayers.player21> Winrate: {{(chosenPlayers.player21.wins / (chosenPlayers.player21.wins + chosenPlayers.player21.losses)) * 100 | number:'1.0-1'}}%</p>
             </div>
             <div class="ng-autocomplete playerPicker">
                 <ng-autocomplete 
@@ -64,12 +70,13 @@
                      [itemTemplate]="itemTemplate"
                      [notFoundTemplate]="notFoundTemplate">                                 
                 </ng-autocomplete>
+                <p *ngIf=chosenPlayers.player22> Rank: {{chosenPlayers.player22.currentRank}}</p>
                 <p *ngIf=chosenPlayers.player22> Rating: {{chosenPlayers.player22.presentRating | number:'1.0-0'}}</p>
+                <p *ngIf=chosenPlayers.player22> Winrate: {{(chosenPlayers.player22.wins / (chosenPlayers.player22.wins + chosenPlayers.player22.losses)) * 100 | number:'1.0-1'}}%</p>
             </div>
         </div>
 </div>
-<div class='estimation divider' 
-    *ngIf="chosenPlayers.player11 && chosenPlayers.player12 && chosenPlayers.player21 && chosenPlayers.player22">
+<div class='estimation divider'>
     <span>Match estimation: <br>{{ estimatedScore }}</span>
 </div>
 <div class='goalsInputWrapper'>

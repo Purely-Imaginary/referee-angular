@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
@@ -8,12 +8,21 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./insert-match.component.css']
 })
 export class InsertMatchComponent implements OnInit {
+
+  encapsulation: ViewEncapsulation.ShadowDom
+
   data:any[] = [];
   constructor(private http: HttpClient) { }
 
   keyword = 'name';
-  chosenPlayers = {};
-  estimatedScore = "0:0";
+  chosenPlayers = 
+  {
+    player11: undefined, 
+    player12: undefined, 
+    player21: undefined, 
+    player22: undefined
+  };
+  estimatedScore = "--:--";
 
   private extractData(res: Response) {
     let body = res;
@@ -52,7 +61,7 @@ export class InsertMatchComponent implements OnInit {
       || this.chosenPlayers.player21 === undefined
       || this.chosenPlayers.player22 === undefined
       ) {
-        this.estimatedScore = "0:0";
+        this.estimatedScore = "--:--";
         return;
       }
 

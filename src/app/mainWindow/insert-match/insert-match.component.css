@@ -25,3 +25,11 @@
 .goalInput {
     padding: 0 10px;
 }
+
+.input-container input {
+    color: white !important;
+}
+
+.playerPicker p {
+    text-align: center;
+}
