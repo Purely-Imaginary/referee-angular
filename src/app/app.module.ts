@@ -19,6 +19,9 @@ import { PlayerComponent } from './mainWindow/player/player.component';
 import { FromNowPipe } from './from-now.pipe';
 import { ReplacePipe } from './replace.pipe';
 import { MatchComponent } from './mainWindow/match/match.component';
+import { InsertMatchComponent } from './mainWindow/insert-match/insert-match.component';
+import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+
 registerLocaleData(localePl);
 
 @NgModule({
@@ -34,13 +37,15 @@ registerLocaleData(localePl);
     PlayerComponent,
     FromNowPipe,
     ReplacePipe,
-    MatchComponent
+    MatchComponent,
+    InsertMatchComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AutocompleteLibModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pl-PL'},

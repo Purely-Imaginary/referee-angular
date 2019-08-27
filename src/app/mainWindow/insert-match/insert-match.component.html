@@ -1,0 +1,85 @@
+<ng-template #itemTemplate let-item>
+    <a [innerHTML]="item.name"></a>
+</ng-template>
+                     
+<ng-template #notFoundTemplate let-notFound>
+   <div [innerHTML]="notFound"></div>
+</ng-template>
+
+<h4 class="divider">Insert new match</h4>
+<div class='playerPickersWrapper'>
+    <div>
+        <div class="ng-autocomplete playerPicker">
+            <ng-autocomplete 
+                id='player11'
+                [data]="data"
+                [searchKeyword]="keyword"
+                (selected)='selectEvent($event, "player11")'
+                (inputChanged)='onChangeSearch($event)'
+                (inputFocused)='onFocused($event)'
+                [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate">                                 
+            </ng-autocomplete>
+            <p *ngIf=chosenPlayers.player11> Rating: {{chosenPlayers.player11.presentRating | number:'1.0-0'}}</p>
+        </div>
+        <div class="ng-autocomplete playerPicker">
+            <ng-autocomplete 
+                id='player12'
+                [data]="data"
+                 [searchKeyword]="keyword"
+                 (selected)='selectEvent($event, "player12")'
+                 (inputChanged)='onChangeSearch($event)'
+                 (inputFocused)='onFocused($event)'
+                 [itemTemplate]="itemTemplate"
+                 [notFoundTemplate]="notFoundTemplate">                                 
+            </ng-autocomplete>
+            <p *ngIf=chosenPlayers.player12> Rating: {{chosenPlayers.player12.presentRating | number:'1.0-0'}}</p>
+        </div>
+    </div>
+    <div>
+        <img src='../../../assets/img/table.png'>
+    </div>
+    <div>
+            <div class="ng-autocomplete playerPicker">
+                <ng-autocomplete 
+                    id='player21'
+                    [data]="data"
+                    [searchKeyword]="keyword"
+                    (selected)='selectEvent($event, "player21")'
+                    (inputChanged)='onChangeSearch($event)'
+                    (inputFocused)='onFocused($event)'
+                    [itemTemplate]="itemTemplate"
+                    [notFoundTemplate]="notFoundTemplate">                                 
+                </ng-autocomplete>
+                <p *ngIf=chosenPlayers.player21> Rating: {{chosenPlayers.player21.presentRating | number:'1.0-0'}}</p>
+            </div>
+            <div class="ng-autocomplete playerPicker">
+                <ng-autocomplete 
+                    id='player22'
+                    [data]="data"
+                     [searchKeyword]="keyword"
+                     (selected)='selectEvent($event, "player22")'
+                     (inputChanged)='onChangeSearch($event)'
+                     (inputFocused)='onFocused($event)'
+                     [itemTemplate]="itemTemplate"
+                     [notFoundTemplate]="notFoundTemplate">                                 
+                </ng-autocomplete>
+                <p *ngIf=chosenPlayers.player22> Rating: {{chosenPlayers.player22.presentRating | number:'1.0-0'}}</p>
+            </div>
+        </div>
+</div>
+<div class='estimation divider' 
+    *ngIf="chosenPlayers.player11 && chosenPlayers.player12 && chosenPlayers.player21 && chosenPlayers.player22">
+    <span>Match estimation: <br>{{ estimatedScore }}</span>
+</div>
+<div class='goalsInputWrapper'>
+    <div class='goalInput'>
+        <input size='1' maxlength='2'>
+    </div>
+    <div class='goalinputDivider'>
+        <span class='divider'>:</span>        
+    </div>
+    <div class='goalInput'>
+        <input size='1'  maxlength='2'>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+.playerPickersWrapper {
+    display:flex;
+    justify-content: center;
+}
+
+.playerPicker {
+    height: 184px;
+    width: 200px;
+    padding: 53px 10px 0 10px;
+}
+
+.goalsInputWrapper {
+    padding-top: 20px;
+    font-size: 30pt;
+
+    display: flex;
+    justify-content: center;
+}
+
+.goalInput input{
+    text-align: center;
+    padding: 0 3px;
+}
+
+.goalInput {
+    padding: 0 10px;
+}
