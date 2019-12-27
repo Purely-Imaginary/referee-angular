@@ -15,7 +15,7 @@ export class NavigationComponent implements OnInit {
     { name: 'Matches' , url: '/matches' , icon: '☉'},
     { name: 'Your profile' , url: '/player/1' , icon: '☣'},
     { name: 'Insert match' , url: '/insertMatch' , icon: '☀'},
-    { name: 'Ideas' , url: '/ideas' , icon: '✅', component: IdeasComponent},
+    { name: 'Ideas' , url: '/ideas' , icon: '✓', component: IdeasComponent},
   ];
 
   constructor() { }

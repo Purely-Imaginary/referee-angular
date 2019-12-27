@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import * as moment from 'moment';
+import { CookieService } from 'ngx-cookie-service';
+import { Router, Event, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,11 +11,26 @@ import * as moment from 'moment';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private cookieService: CookieService,
+    private router: Router,
+    ) { 
+      router.events.subscribe((val) => {
+        if (val instanceof NavigationEnd){
+          const cookieValue = this.cookieService.get('jwt');
+          if (!cookieValue && val.url !== '/login') {
+            this.router.navigate(['/login']);
+          }
+        }
+      }
+    );
+  }
 
   public buttonText = "Download"
 
   ngOnInit() {
+    
   }
 
   refreshData() {

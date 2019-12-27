@@ -1,0 +1,6 @@
+<p>login works!</p>
+<form (submit)="login(username.value, password.value)">
+    <input type='text'     #username placeholder="username">
+    <input type='password' #password placeholder="password">
+    <button type='button' (click)="login(username.value, password.value)">{{buttonText}}</button>
+</form>

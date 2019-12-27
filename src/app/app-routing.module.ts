@@ -7,6 +7,7 @@ import { IdeasComponent } from './mainWindow/ideas/ideas.component';
 import { PlayerComponent } from './mainWindow/player/player.component';
 import { MatchComponent } from './mainWindow/match/match.component';
 import { InsertMatchComponent } from './mainWindow/insert-match/insert-match.component';
+import { LoginComponent } from './mainWindow/login/login.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'matches', component: MatchesComponent },
   { path: 'insertMatch', component: InsertMatchComponent },
   { path: '', component: DashboardComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({

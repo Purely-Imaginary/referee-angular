@@ -20,7 +20,9 @@ import { FromNowPipe } from './from-now.pipe';
 import { ReplacePipe } from './replace.pipe';
 import { MatchComponent } from './mainWindow/match/match.component';
 import { InsertMatchComponent } from './mainWindow/insert-match/insert-match.component';
-import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+import { CookieService } from 'ngx-cookie-service';
+import { LoginComponent } from './mainWindow/login/login.component';
 
 registerLocaleData(localePl);
 
@@ -38,7 +40,8 @@ registerLocaleData(localePl);
     FromNowPipe,
     ReplacePipe,
     MatchComponent,
-    InsertMatchComponent
+    InsertMatchComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +52,7 @@ registerLocaleData(localePl);
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pl-PL'},
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
